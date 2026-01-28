@@ -1,6 +1,8 @@
 # test-demo-douglas-de-framework
 
-Test automation framework for demo, using TypeScript + Playwright
+Test automation framework for demo, using TypeScript + Playwright.
+Using playwright/test as test runner.
+Each test start each own browser context.
 
 ## Installation
 

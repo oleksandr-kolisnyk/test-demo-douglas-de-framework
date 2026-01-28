@@ -22,4 +22,15 @@ test.describe('Login flow', () => {
     expect(loginPage.isAlertErrorVisible()).toBeTruthy();
   });
 
+  test('should provide form if password forgotten', async ({ loginPage }) => {
+    logger.info("Click on Forgot Password link");
+    await loginPage.clickForgotPassword();
+    
+    logger.info("Enter user's email for password reset");
+    await loginPage.resetPasswordForEmail(config.userName);
+
+    logger.info("Verify that message contains entered Email address");
+    expect(await loginPage.getPasswordConfirmationEmailText()).toBe(config.userName);
+  });
+
 });
