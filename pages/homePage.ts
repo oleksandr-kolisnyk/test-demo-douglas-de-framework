@@ -1,18 +1,21 @@
 import { Page } from 'playwright';
 import { BasePage } from './basePage';
+import { LoginPage } from './loginPage';
 
 export class HomePage extends BasePage {
-  readonly username = '#username';
-  readonly password = '#password';
-  readonly submit = 'button[type="submit"]';
+  readonly acceptAllCookiesButton = '[data-testid="uc-accept-all-button"]';
+  readonly accountIcon = '[data-testid="header-component-item--account"]';
 
   constructor(page: Page) {
     super(page);
   }
 
-  async login(user: string, pass: string) {
-    await this.page.fill(this.username, user);
-    await this.page.fill(this.password, pass);
-    await this.page.click(this.submit);
+  async acceptAllCookies() {
+    await this.page.click(this.acceptAllCookiesButton);
+  }
+
+  async goToLoginPage() {
+    await this.page.click(this.accountIcon);
+    return new LoginPage(this.page);
   }
 }

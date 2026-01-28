@@ -6,11 +6,12 @@ export default defineConfig({
   expect: { timeout: 5000 },
   reporter: [['list'], ['html', { outputFolder: 'reports/html' }]],
   use: {
-    headless: true,
-    viewport: { width: 1280, height: 720 },
+    headless: false,
+    viewport: { width: 1707, height: 1067 },
     actionTimeout: 0,
     ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
+    // some headers to emulate real user browsing
     timezoneId: 'Europe/Berlin',
     userAgent: 'Chrome/117.0.0.0',
     extraHTTPHeaders: {
