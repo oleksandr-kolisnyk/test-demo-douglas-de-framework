@@ -7,6 +7,9 @@ export class LoginPage extends BasePage {
   readonly password = 'div.login__password input';
   readonly submit = '[data-testid="button-primary"]';
 
+  // the error text above login form
+  readonly alertError = '[data-testid="alert-error"]';
+
   constructor(page: Page) {
     super(page);
   }
