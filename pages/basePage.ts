@@ -1,5 +1,8 @@
 import { Page } from 'playwright';
 
+/*
+Abstract representation of every page with basic methods
+*/
 export class BasePage {
   readonly page: Page;
   constructor(page: Page) {

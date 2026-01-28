@@ -26,7 +26,6 @@ export const test = base.extend<BaseTest>({
     await use(browser);
     await browser.close();
   },
-
   context: async ({ baseURL, browser }, use) => {
     const context = await browser.newContext({
       baseURL: baseURL
@@ -34,7 +33,6 @@ export const test = base.extend<BaseTest>({
     await use(context);
     await context.close();
   },
-
   page: async ({ context }, use) => {
     const page = await context.newPage();
     await use(page);

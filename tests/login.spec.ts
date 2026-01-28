@@ -5,15 +5,21 @@ import { logger } from '../utils/logger';
 
 test.describe('Login flow', () => {
 
-  test('should log in with valid credentials', async ({ loginPage, page }) => {
+  test('should log in with valid credentials', async ({ loginPage }) => {
+    logger.info("Log in with valid credentials");
     const accountPage: AccountPage = await loginPage.login(config.userName, config.password);
-    await expect(page.locator(accountPage.beautyPoints)).toBeVisible({ timeout: 5000 });
+
+    logger.info("Verify that user's accouint page is opened and Beauty Points score is displayed");
+    expect(accountPage.isBeautyPointsVisible()).toBeTruthy();
   });
 
-  test('should fail on wrong password', async ({ loginPage, page }) => {
+  test('should fail on wrong password', async ({ loginPage }) => {
     const wrongPassword = 'wrong123';
+    logger.info("Log in with wrong password");
     await loginPage.login(config.userName, wrongPassword);
-    await expect(page.locator(loginPage.alertError)).toBeVisible();
+
+    logger.info("Verify that alert error is displayed");
+    expect(loginPage.isAlertErrorVisible()).toBeTruthy();
   });
 
 });
