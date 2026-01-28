@@ -2,7 +2,7 @@
 
 Test automation framework for demo, using TypeScript + Playwright.
 Using playwright/test as test runner.
-Each test start each own browser context.
+Each test starts it's own browser context.
 
 ## Installation
 
